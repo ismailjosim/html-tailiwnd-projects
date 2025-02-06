@@ -44,7 +44,7 @@
 
 <body class="font-primary text-secondary">
     <!-- header section -->
-    <header class="hidden">
+    <header>
         <nav class="bg-section">
             <div class="w-11/12 mx-auto flex-item py-5">
                 <div>
@@ -103,7 +103,7 @@
     <!-- main section start -->
     <main>
         <!-- section: Browse By Categories -->
-        <section class="w-11/12 mx-auto my-36 hidden">
+        <section class="w-11/12 mx-auto my-36">
             <h2 class="secondary-heading">Browse By Categories</h2>
             <div class="flex flex-wrap justify-center items-center sm:mt-12 mt-6 sm:gap-10 gap-5">
                 <!-- card-01 -->
@@ -175,7 +175,7 @@
             </div>
         </section>
         <!-- section: Trending Pet Products -->
-        <section class="bg-section mb-36 hidden">
+        <section class="bg-section sm:mb-20 mb-10">
             <div class="w-11/12 mx-auto py-32">
                 <h2 class="secondary-heading">Trending Pet Products</h2>
                 <div class="grid lg:grid-cols-3 gap-5 mt-10">
@@ -316,7 +316,7 @@
         <!-- section: Everyday low Price -->
         <section>
             <div class="w-11/12 mx-auto">
-                <h2 class="secondary-heading">Everyday low Price</h2>
+                <h2 class="secondary-heading mb-5">Everyday low Price</h2>
                 <div class="grid sm:grid-cols-5 sm:gap-6 sm:gap-y-0 gap-y-5">
                     <div
                         class="col-span-3 bg-[linear-gradient(134.71deg,rgb(248,204,251)_1.286%,rgb(172,210,253)_100%)] rounded-xl flex justify-between items-center gap-5">
@@ -343,6 +343,24 @@
 
                 </div>
             </div>
+        </section>
+        <!-- section: Newsletter section -->
+        <section>
+            <div class="w-8/12 mx-auto py-20">
+                <div class="bg-section shadow-lg flex items-center justify-center gap-20 p-10 rounded-lg">
+                    <div>
+                        <img src="./images/cute-pet-mid.png" alt="">
+                    </div>
+                    <div>
+                        <h2 class="secondary-heading">Get Pawsome News!</h2>
+                        <p class="opacity-70 py-5">Exclusive training tips, ticks, product deals and more.</p>
+                        <div class="flex flex-col items-start gap-5">
+                            <input type="text" placeholder="Enter your email"
+                                class="p-3 w-full rounded-md border bg-white border-black/10" />
+                            <button class="btn bg-primary">Subscribe</button>
+                        </div>
+                    </div>
+                </div>
         </section>
     </main>
 </body>
