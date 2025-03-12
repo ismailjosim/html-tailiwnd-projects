@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Medik - E-Commerce Website with tailwindcss and JS</title>
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
+
+    <!--Font: Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap"
+        rel="stylesheet" />
+
+    <!-- font Awesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        crossorigin="anonymous" />
+
+    <!--Link: Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+        @theme {
+				--font-primary: Roboto, serif;
+				--font-secondary: Titillium Web, serif;
+				--color-primary: #076cec;
+				--color-secondary: #030d1d;
+				--color-btn: #003242;
+				--color-btn-hover: #35c7df;
+				--color-category: #dbf4fc;
+			}
+			.nav-link {
+				@apply text-lg hover:text-white hover:bg-primary rounded-md hover:shadow-md transition-colors duration-300 ease-in-out;
+			}
+			.category-btn {
+				@apply bg-category p-5 px-8 rounded-md shadow-md space-y-3 flex flex-col justify-center items-center flex-1 cursor-pointer;
+			}
+			.color-transition {
+				@apply transition-colors duration-300 ease-in-out;
+			}
+			.flex-col-item {
+				@apply flex flex-col justify-center items-center;
+			}
+		</style>
+</head>
+
+<body class="font-primary">
+    <!-- Header Section Start -->
+    <header class="hidden">
+        <section class="bg-primary">
+            <div class="w-11/12 mx-auto py-4 flex sm:flex-row flex-col sm:justify-between gap-2 text-white">
+                <div class="flex justify-center gap-3">
+                    <p>
+                        <i class="fa-solid fa-phone"></i>
+                        <span>+880 153 333 333</span>
+                    </p>
+                    <p>|</p>
+                    <p>
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>contact@medik.com</span>
+                    </p>
+                </div>
+                <div class="flex justify-center items-center gap-5">
+                    <i class="text-lg fa-brands fa-twitter"></i>
+                    <i class="text-lg fa-brands fa-facebook-f"></i>
+                    <i class="text-lg fa-brands fa-youtube"></i>
+                    <i class="text-lg fa-brands fa-instagram"></i>
+                </div>
+            </div>
+        </section>
+        <nav class="navbar p-0 py-2 items-center w-11/12 mx-auto">
+            <div class="navbar-start">
+                <a href="#">
+                    <img class="w-36" src="./images/logo.webp" alt="" />
+                </a>
+            </div>
+            <div class="navbar-center hidden lg:flex">
+                <ul class="menu menu-horizontal px-1">
+                    <li class="nav-link"><a>Home</a></li>
+                    <li class="nav-link"><a>About</a></li>
+                    <li class="nav-link"><a>Blog</a></li>
+                    <li class="nav-link"><a>Collection</a></li>
+                    <li class="nav-link"><a>Shop</a></li>
+                    <li class="nav-link"><a>Contact US</a></li>
+                </ul>
+            </div>
+            <div class="navbar-end">
+                <div class="flex items-center gap-5">
+                    <i class="text-lg fa-solid fa-heart"></i>
+                    <i class="text-lg fa-solid fa-user"></i>
+                    <button class="relative">
+                        <i class="text-lg fa-solid fa-cart-shopping"></i>
+                        <span
+                            class="bg-primary text-white w-4 h-4 p-3 rounded-full flex justify-center items-center absolute -top-4 -right-4">0</span>
+                    </button>
+                    <div class="dropdown">
+                        <div tabindex="0" role="button" class="btn lg:hidden">
+                            <i class="text-lg fa-solid fa-bars"></i>
+                        </div>
+                        <ul tabindex="0"
+                            class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow relative right-0">
+                            <li class="nav-link"><a>Home</a></li>
+                            <li class="nav-link"><a>About</a></li>
+                            <li class="nav-link"><a>Blog</a></li>
+                            <li class="nav-link"><a>Collection</a></li>
+                            <li class="nav-link"><a>Shop</a></li>
+                            <li class="nav-link"><a>Contact US</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <section
+            class="bg-[url('./images/shop-slider-bg.jpg')] sm:h-[85vh] h-[65vh] bg-no-repeat bg-center bg-cover flex items-center">
+            <div class="sm:w-7/12 w-11/12 sm:text-left text-center mx-auto space-y-5">
+                <h3 class="font-secondary text-3xl font-semibold text-secondary">
+                    Safety Masks
+                </h3>
+                <h1 class="font-secondary sm:text-7xl text-5xl font-bold text-white">
+                    15% Off. <span class="text-secondary">Hurry</span>
+                </h1>
+                <p class="text-lg sm:w-1/3 text-white font-medium">
+                    Get the best Grade A safety mask for you & your loved ones
+                    protection.
+                </p>
+                <button
+                    class="btn btn-primary px-10 py-6 bg-white text-btn border-white hover:bg-primary hover:border-primary transition-colors duration-300 ease-in-out hover:text-white">
+                    Starts from $0.99
+                </button>
+            </div>
+        </section>
+    </header>
+    <!-- Main Section Start -->
+    <main>
+        <!-- Section: Advertise section start -->
+
+        <section class="sm:w-9/12 mx-auto sm:hidden sm:space-y-0 space-y-10 justify-center items-center gap-5 my-14">
+            <div
+                class="bg-[url('./images/feature-img-1.jpg')] bg-center bg-no-repeat bg-cover rounded-md p-5 flex-1 font-secondary sm:space-y-5 space-y-2 py-24">
+                <h2 class="text-5xl font-bold">Save 20%</h2>
+                <h3 class="text-3xl font-light text-white">On Sanitizers</h3>
+                <p class="text-lg">99.9% Germ Production</p>
+                <button
+                    class="btn btn-primary btn-sm text-base p-5 rounded-full font-normal font-primary hover:bg-btn-hover transition-colors duration-300 ease-in-out hover:border-btn-hover">
+                    shop now
+                </button>
+            </div>
+            <div
+                class="bg-[url('./images/feature-img-2.jpg')] bg-center bg-no-repeat bg-cover rounded-md p-5 flex-1 font-secondary sm:space-y-5 space-y-2 py-24 text-right">
+                <h2 class="text-5xl font-bold">15% Off</h2>
+                <h3 class="text-3xl font-light text-primary">Protective Gears</h3>
+                <p class="text-lg">Covid Protection</p>
+                <button
+                    class="btn btn-primary btn-sm text-base p-5 rounded-full font-normal font-primary hover:bg-btn-hover transition-colors duration-300 ease-in-out hover:border-btn-hover">
+                    shop now
+                </button>
+            </div>
+        </section>
+
+        <!-- section: Products categories Start -->
+        <section class="hidden">
+            <div class="text-center">
+                <h2 class="text-4xl font-bold text-secondary font-secondary">
+                    Our Products
+                </h2>
+                <p class="my-5">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting
+                    industry
+                </p>
+            </div>
+            <!-- Show All Categories -->
+            <div id="categories" class="flex justify-center gap-5 w-9/12 mx-auto">
+                <!-- <div class="bg-category p-5 px-8 rounded-md shadow-md space-y-3">
+                    <img src="./images/Laboratory.webp" alt="">
+                    <h3 class="text-lg text-secondary">Medicine</h3>
+                </div> -->
+            </div>
+
+            <!-- section: Products section Start -->
+            <section id="products-section" class="grid grid-cols-4 gap-5 my-20 w-11/12 mx-auto">
+                <!-- <div class="border border-slate-200 rounded-md overflow-hidden">
+                    <div class="h-72">
+                        <img class="w-full h-full object-cover" src="./images/product-01.jpg" alt="" />
+                    </div>
+                    <div class="text-center space-y-4 py-5">
+                        <div class="flex justify-center gap-1 py-2 text-slate-400">
+                            <span class="hover:underline hover:text-primary font-medium cursor-pointer">Capsules,</span>
+                            <span class="hover:underline hover:text-primary font-medium cursor-pointer">Medicine,</span>
+                            <span class="hover:underline hover:text-primary font-medium cursor-pointer">Pills</span>
+                        </div>
+                        <h3
+                            class="text-xl font-bold font-secondary hover:text-btn-hover color-transition cursor-pointer">
+                            Vitamin C Tablet
+                        </h3>
+                        <p class="text-yellow-500 text-lg">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </p>
+                        <p class="text-lg text-primary font-semibold">$59.99</p>
+                        <button
+                            class="btn btn-primary bg-btn-hover btn-lg uppercase text-xs border-btn-hover text-white rounded-full hover:bg-primary hover:border-primary color-transition">add
+                            to cart
+                        </button>
+
+                    </div>
+                </div> -->
+            </section>
+        </section>
+        <!-- section: Offer Section Start -->
+        <section class="hidden bg-[url('./images/number-counter-bg.jpg')] bg-no-repeat bg-center bg-cover">
+            <div class="sm:flex-1 text-center mx-auto py-28 space-y-5">
+                <h3 class="text-5xl font-secondary font-bold">
+                    grade a safety masks <br />
+                    for sale. hurry!
+                </h3>
+                <p class="text-2xl">Offer Ends On</p>
+                <div class="flex items-start justify-center text-4xl font-bold gap-5">
+                    <p class="flex-col-item">
+                        <span class="">00</span>
+                        <span class="text-base font-light">Days</span>
+                    </p>
+                    <span>:</span>
+                    <p class="flex-col-item">
+                        <span>00</span>
+                        <span class="text-base font-light">Hours</span>
+                    </p>
+                    <span>:</span>
+                    <p class="flex-col-item">
+                        <span>00</span>
+                        <span class="text-base font-light">Minutes</span>
+                    </p>
+                    <span>:</span>
+                    <p class="flex-col-item">
+                        <span>00</span>
+                        <span class="text-base font-light">Seconds</span>
+                    </p>
+                </div>
+                <button
+                    class="btn btn-primary bg-primary btn-lg px-10 uppercase text-xs border-primary text-white rounded-full hover:bg-btn-hover  hover:border-btn-hover  color-transition">
+                    Buy Now
+                </button>
+            </div>
+            <div class="sm:flex-1"></div>
+            <!-- <img class="w-full object-cover" src="./demos/demo07.png" alt="" /> -->
+        </section>
+        <!-- section: Special Products Section Start -->
+        <section class="hidden">
+            <div class="text-center">
+                <h2 class="text-4xl font-bold text-secondary font-secondary">
+                    Our Special Products
+                </h2>
+                <p class="my-5">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting
+                    industry
+                </p>
+            </div>
+            <div class="w-11/12 mx-auto my-20 grid lg:grid-cols-3 gap-5">
+                <div class="border border-slate-200 rounded-md overflow-hidden">
+                    <div class="h-72">
+                        <img class="w-full h-full object-cover bg-slate-300" src="./images/shop-4-1-1-1000x1000.jpg"
+                            alt="" />
+                    </div>
+                    <div class="text-center space-y-4 py-5">
+                        <div class="flex justify-center gap-1 py-2 text-slate-400">
+                            <span class="hover:underline hover:text-primary font-medium cursor-pointer">Capsules,</span>
+                            <span class="hover:underline hover:text-primary font-medium cursor-pointer">Medicine,</span>
+                            <span class="hover:underline hover:text-primary font-medium cursor-pointer">Pills</span>
+                        </div>
+                        <h3
+                            class="text-xl font-bold font-secondary hover:text-btn-hover color-transition cursor-pointer">
+                            Non Contact Thermometer
+                        </h3>
+                        <p class="text-yellow-500 text-lg">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </p>
+                        <p class="text-lg text-primary font-semibold">$200.00</p>
+                        <button
+                            class="btn btn-primary bg-btn-hover btn-lg uppercase text-xs border-btn-hover text-white rounded-full hover:bg-primary hover:border-primary color-transition">add
+                            to cart
+                        </button>
+
+                    </div>
+                </div>
+                <div class="border border-slate-200 rounded-md overflow-hidden">
+                    <div class="h-72">
+                        <img class="w-full h-full object-cover bg-slate-300" src="./images/shop-4-2-1-1000x1000.jpg"
+                            alt="" />
+                    </div>
+                    <div class="text-center space-y-4 py-5">
+                        <div class="flex justify-center gap-1 py-2 text-slate-400">
+                            <span class="hover:underline hover:text-primary font-medium cursor-pointer">Capsules,</span>
+                            <span class="hover:underline hover:text-primary font-medium cursor-pointer">Medicine,</span>
+                            <span class="hover:underline hover:text-primary font-medium cursor-pointer">Pills</span>
+                        </div>
+                        <h3
+                            class="text-xl font-bold font-secondary hover:text-btn-hover color-transition cursor-pointer">
+                            Non Contact Thermometer
+                        </h3>
+                        <p class="text-yellow-500 text-lg">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </p>
+                        <p class="text-lg text-primary font-semibold">$200.00</p>
+                        <button
+                            class="btn btn-primary bg-btn-hover btn-lg uppercase text-xs border-btn-hover text-white rounded-full hover:bg-primary hover:border-primary color-transition">add
+                            to cart
+                        </button>
+
+                    </div>
+                </div>
+                <div class="border border-slate-200 rounded-md overflow-hidden">
+                    <div class="h-72">
+                        <img class="w-full h-full object-cover bg-slate-300" src="./images/shop-4-3-1-1000x1000.jpg"
+                            alt="" />
+                    </div>
+                    <div class="text-center space-y-4 py-5">
+                        <div class="flex justify-center gap-1 py-2 text-slate-400">
+                            <span class="hover:underline hover:text-primary font-medium cursor-pointer">Capsules,</span>
+                            <span class="hover:underline hover:text-primary font-medium cursor-pointer">Medicine,</span>
+                            <span class="hover:underline hover:text-primary font-medium cursor-pointer">Pills</span>
+                        </div>
+                        <h3
+                            class="text-xl font-bold font-secondary hover:text-btn-hover color-transition cursor-pointer">
+                            Non Contact Thermometer
+                        </h3>
+                        <p class="text-yellow-500 text-lg">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </p>
+                        <p class="text-lg text-primary font-semibold">$200.00</p>
+                        <button
+                            class="btn btn-primary bg-btn-hover btn-lg uppercase text-xs border-btn-hover text-white rounded-full hover:bg-primary hover:border-primary color-transition">add
+                            to cart
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!-- Section: Our Client Section Start -->
+        <section class="bg-category flex flex-col justify-center items-center py-20">
+            <div class="text-center">
+                <h2 class="text-4xl font-bold text-secondary font-secondary">
+                    Our Client Say!
+                </h2>
+                <p class="my-5">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting
+                    industry
+                </p>
+            </div>
+            <div class="bg-white w-2/5 mx-auto px-5 py-10 rounded-lg relative shadow-lg">
+                <div class="bg-red-500/20 px-5 py-14 absolute w-full h-full top-0 left-0"></div>
+                <div class="bg-white  flex flex-col justify-center items-center gap-5">
+                    <div class="flex gap-5 justify-center items-center">
+                        <img class="w-20 h-20 shadow-md rounded-full" src="./images/team-1.jpg" alt="" />
+                        <div>
+                            <h3 class="text-lg font-semibold">Cute Girl</h3>
+                            <p class="text-sm text-slate-400">Designation</p>
+                        </div>
+                    </div>
+                    <div class=" relative flex flex-col justify-center items-center text-center">
+                        <i
+                            class="fa-solid select-none fa-quote-left text-7xl absolute opacity-40 text-slate-400 left-5 top-0"></i>
+                        <p class="text-lg p-5 text-slate-700 font-medium">
+                            Lorem Ipsum is simply dummy text of the printing and typesetting
+                            industry. Lorem Ipsum has been the industry's standard dummy text
+                            ever since the 1500s, when an unknown printer took a galley of type
+                            and scrambled
+                        </p>
+                        <div class="flex justify-between items-center w-full">
+                            <button
+                                class="btn btn-primary btn-lg text-2xl text-white fa-solid fa-caret-left absolute -top-5 -left-14"></button>
+                            <button
+                                class="btn btn-primary btn-lg text-2xl text-white fa-solid fa-caret-right absolute -top-5 -right-14"></button>
+                        </div>
+                    </div>
+                </div>
+        </section>
+        <img class="w-full object-cover" src="./demos/demo09.png" alt="" />
+        <!-- Section: Latest News Section Start -->
+        <section>
+            <img class="w-full object-cover" src="./demos/demo10.png" alt="" />
+        </section>
+        <!-- Section: Newsletter Section Start -->
+        <section>
+            <img class="w-full object-cover" src="./demos/demo11.png" alt="" />
+        </section>
+        <!-- section: Partners section start -->
+        <section>
+            <img class="w-full object-cover" src="./demos/demo12.png" alt="" />
+        </section>
+    </main>
+    <!-- Footer Section Start -->
+
+    <footer>
+        <img class="w-full object-cover" src="./demos/demo13.png" alt="" />
+    </footer>
+    <!-- Script: Custom JS File link -->
+    <script src="./app.js"></script>
+</body>
+
+</html>
